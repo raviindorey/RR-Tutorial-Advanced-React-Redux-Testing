@@ -1,7 +1,10 @@
+import { reducer as formReducer } from 'redux-form';
+import { combineReducers } from 'redux';
+
 import { SAVE_COMMENT } from '../actions';
 
 const commentReducer = (state = [], action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case SAVE_COMMENT:
       return [...state, action.payload];
     default:
@@ -9,4 +12,20 @@ const commentReducer = (state = [], action) => {
   }
 };
 
-export default commentReducer;
+const customFormReducer = formReducer.plugin({
+  commentForm: (state, action) => {
+    switch (action.type) {
+      case SAVE_COMMENT:
+        return undefined;
+      default:
+        return state;
+    }
+  },
+});
+
+const reducer = combineReducers({
+  form: customFormReducer,
+  comments: commentReducer,
+});
+
+export default reducer;
