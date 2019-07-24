@@ -7,15 +7,15 @@ const CommentList = (props) => {
 
   if (comments.length === 0) {
     return (
-      <div>
+      <div className="col-md-12">
         <div className="alert alert-warning">Please Add Comments</div>
       </div>
     );
   }
 
   return (
-    <div>
-      <ul className="list-group">
+    <div className="col-md-12">
+      <ul className="list-group-flush">
         {comments.map((comment, i) => (
           <li className="list-group-item" key={i}>
             {comment}

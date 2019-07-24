@@ -24,13 +24,32 @@ const CommentForm = (props) => {
   };
 
   return (
-    <div>
+    <div className="col-md-12">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <Field name="commentBox" component={renderInputBox} label="Write a comment.." />
+        <div className="row">
+          <div className="form-group col-md-8">
+            <Field name="commentBox" component={renderInputBox} label="Write a comment.." />
+          </div>
+          <div className="col-md-4 form-group">
+            <button
+              className="btn btn-outline-primary form-control"
+              style={{ margin: '3px' }}
+              disabled={pristine || submitting}
+              type="submit"
+            >
+              Save Comment
+            </button>
+            <button
+              className="btn btn-outline-info form-control"
+              style={{ margin: '3px' }}
+              disabled={pristine}
+              type="submit"
+              onClick={reset}
+            >
+              Clear
+            </button>
+          </div>
         </div>
-        <button className="btn btn-primary" disabled={pristine || submitting} type="submit">Save Comment</button>
-        <button className="btn" disabled={pristine} type="submit" onClick={reset}>Clear</button>
       </form>
       <br />
     </div>
