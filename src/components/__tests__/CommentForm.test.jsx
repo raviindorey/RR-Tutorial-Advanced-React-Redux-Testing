@@ -1,12 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import Root from 'Root.jsx';
 
 import CommentForm from 'components/CommentForm';
-import reducer from 'reducers';
-
-const store = createStore(reducer);
 
 // const appWithStore = <Provider store={store}><App /></Provider>;
 
@@ -16,7 +12,11 @@ let wrapped;
 // as CommentForm does not have a child.
 // We are just trying out full-dom component with `mount`.
 beforeEach(() => {
-  wrapped = mount(<Provider store={store}><CommentForm /></Provider>);
+  wrapped = mount(
+    <Root>
+      <CommentForm />
+    </Root>,
+  );
 });
 
 // A fully functional DOM element should be unmounted
