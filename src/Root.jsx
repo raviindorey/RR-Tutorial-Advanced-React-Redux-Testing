@@ -7,16 +7,25 @@ import reducer from 'reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer, composeEnhancers(applyMiddleware()));
-
-const Root = ({ children }) => (
-  <Provider store={store}>
-    {children}
-  </Provider>
-);
+const Root = ({ children, initialState }) => {
+  const store = createStore(reducer, initialState, composeEnhancers(applyMiddleware()));
+  return (
+    <Provider store={store}>
+      {children}
+    </Provider>
+  );
+};
 
 export default Root;
 
+Root.defaultProps = {
+  initialState: {},
+};
+
 Root.propTypes = {
   children: PropTypes.element.isRequired,
+  initialState: PropTypes.shape({
+    comments: PropTypes.array,
+    form: PropTypes.object,
+  }),
 };
