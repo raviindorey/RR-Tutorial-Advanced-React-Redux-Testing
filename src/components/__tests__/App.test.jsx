@@ -1,16 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
-
 import App from 'components/App.jsx';
-// import reducer from '../../reducers';
 import CommentForm from 'components/CommentForm.jsx';
 import CommentList from 'components/CommentList.jsx';
-
-// const store = createStore(reducer);
-// const appWithStore = <Provider store={store}><App /></Provider>;
 
 // jest way:
 //  create a div in `jsdom`
