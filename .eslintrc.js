@@ -21,6 +21,13 @@ module.exports = {
         "no-shadow": "off",
         "react/jsx-one-expression-per-line": "off",
     },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    },
 };
 
 // camelcase: 
