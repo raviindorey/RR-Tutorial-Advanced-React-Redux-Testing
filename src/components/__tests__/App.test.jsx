@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 // import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
 
-import App from '../App.jsx';
+import App from 'components/App.jsx';
 // import reducer from '../../reducers';
-import CommentForm from '../CommentForm.jsx';
-import CommentList from '../CommentList.jsx';
+import CommentForm from 'components/CommentForm.jsx';
+import CommentList from 'components/CommentList.jsx';
 
 // const store = createStore(reducer);
 // const appWithStore = <Provider store={store}><App /></Provider>;

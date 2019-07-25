@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, propTypes } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { saveComment } from '../actions';
+import { saveComment } from 'actions';
 
 const renderInputBox = ({ input, label, meta: { touched, error } }) => (
   <div>

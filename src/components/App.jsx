@@ -1,6 +1,6 @@
 import React from 'react';
-import CommentForm from './CommentForm.jsx';
-import CommentList from './CommentList.jsx';
+import CommentForm from 'components/CommentForm.jsx';
+import CommentList from 'components/CommentList.jsx';
 
 const App = () => (
   <div className="container">
