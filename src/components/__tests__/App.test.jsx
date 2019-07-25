@@ -26,12 +26,16 @@ import CommentList from 'components/CommentList.jsx';
 //   ReactDOM.unmountComponentAtNode(div);
 // });
 
+let wrapped;
+
+beforeEach(() => {
+  wrapped = shallow(<App />);
+});
+
 it('shows a comment box', () => {
-  const wrapped = shallow(<App />);
   expect(wrapped.find(CommentForm).length).toEqual(1);
 });
 
-it('shows comment list', () => {
-  const wrapped = shallow(<App />);
+it('shows a comment list', () => {
   expect(wrapped.find(CommentList).length).toEqual(1);
 });
