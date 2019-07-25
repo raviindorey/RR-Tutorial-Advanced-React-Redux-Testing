@@ -30,7 +30,7 @@ it('has a text area and a button', () => {
   expect(wrapped.find('button').length).toEqual(2);
 });
 
-describe('the test area', () => {
+describe('the text area', () => {
   beforeEach(() => {
     wrapped.find('textarea').simulate('change', {
       target: { value: 'test comment' },
