@@ -43,7 +43,7 @@ const CommentForm = (props) => {
               className="btn btn-outline-info form-control"
               style={{ margin: '3px' }}
               disabled={pristine}
-              type="submit"
+              type="button"
               onClick={reset}
             >
               Clear
