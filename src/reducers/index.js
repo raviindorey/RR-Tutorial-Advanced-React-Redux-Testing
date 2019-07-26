@@ -1,12 +1,15 @@
 import { reducer as formReducer } from 'redux-form';
 import { combineReducers } from 'redux';
 
-import { SAVE_COMMENT } from '../actions';
+import { SAVE_COMMENT, FETCH_COMMENTS } from '../actions';
 
 const commentReducer = (state = [], action) => {
   switch (action.type) {
     case SAVE_COMMENT:
       return [...state, action.payload];
+    case FETCH_COMMENTS:
+      return state.concat(action.payload);
+
     default:
       return state;
   }

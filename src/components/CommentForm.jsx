@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, propTypes } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { saveComment } from 'actions';
+import { saveComment, fetchComments } from 'actions';
 
 const renderInputBox = ({ input, label, meta: { touched, error } }) => (
   <div>
-    <textarea {...input} className="form-control" rows="3" placeholder={label} />
+    <textarea {...input} className="form-control" rows="5" placeholder={label} />
     {touched && error && <div className="alert alert-danger">{error}</div>}
   </div>
 );
@@ -16,7 +16,7 @@ const renderInputBox = ({ input, label, meta: { touched, error } }) => (
 
 const CommentForm = (props) => {
   const {
-    handleSubmit, saveComment, pristine, submitting, reset,
+    handleSubmit, saveComment, fetchComments, pristine, submitting, reset,
   } = props;
 
   const onSubmit = (formValues) => {
@@ -48,6 +48,14 @@ const CommentForm = (props) => {
             >
               Clear
             </button>
+            <button
+              className="btn btn-outline-success form-control"
+              style={{ margin: '3px' }}
+              type="button"
+              onClick={fetchComments}
+            >
+              Fetch Comments
+            </button>
           </div>
         </div>
       </form>
@@ -58,6 +66,7 @@ const CommentForm = (props) => {
 
 const mapDispatchToProps = {
   saveComment,
+  fetchComments,
 };
 
 const validate = (formValues) => {

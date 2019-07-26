@@ -16,7 +16,7 @@ const CommentList = (props) => {
   return (
     <div className="col-md-12">
       <ul className="list-group-flush">
-        {comments.map((comment, i) => (
+        {comments.reverse().map((comment, i) => (
           <li className="list-group-item" key={i}>
             {comment}
           </li>
