@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import moxios from 'moxios';
 
 import Root from 'Root.jsx';
 import App from 'components/App.jsx';
@@ -11,6 +12,15 @@ beforeEach(() => {
       <App />
     </Root>,
   );
+  moxios.install();
+  moxios.stubRequest('http://jsonplaceholder.typicode.com/comments', {
+    status: 200,
+    response: [{ name: 'name as Comment 1' }, { name: 'name as Comment 2' }],
+  });
+});
+
+afterEach(() => {
+  moxios.uninstall();
 });
 
 it('can fetch a list of comments and display them', () => {
