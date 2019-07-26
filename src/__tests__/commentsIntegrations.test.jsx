@@ -21,9 +21,15 @@ beforeEach(() => {
 
 afterEach(() => {
   moxios.uninstall();
+  wrapper.unmount();
 });
 
-it('can fetch a list of comments and display them', () => {
+it('can fetch a list of comments and display them', (done) => {
   wrapper.find({ className: 'btn btn-outline-success form-control' }).simulate('click');
-  expect(wrapper.find('li').length).toEqual(500);
+
+  moxios.wait(() => {
+    wrapper.update();
+    expect(wrapper.find('li').length).toEqual(2);
+    done();
+  });
 });
